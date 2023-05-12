@@ -2,7 +2,7 @@ import { Center, Wrap, WrapItem, Spinner, Stack, Alert, AlertIcon, AlertDescript
 import ProductCard from '../components/ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../redux/actions/productActions';
-import { products } from '../redux/slices/products';
+// import { products } from '../redux/slices/products';
 import { useEffect } from 'react';
 
 const ProductsScreen = () => {
@@ -24,7 +24,7 @@ const ProductsScreen = () => {
       ) : error ? (
         <Alert status='error'>
           <AlertIcon />
-          <AlertTitle>We are sorry!</AlertTitle>
+          <AlertTitle>Oops, something wrong!</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       ) : (
