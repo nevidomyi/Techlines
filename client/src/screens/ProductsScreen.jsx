@@ -8,8 +8,8 @@ import { useEffect } from 'react';
 const ProductsScreen = () => {
   const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.products);
-  const { loading, error, products } = productList;
+  const productsList = useSelector((state) => state.products);
+  const { loading, error, products } = productsList;
 
   useEffect(() => {
     dispatch(getProducts())
