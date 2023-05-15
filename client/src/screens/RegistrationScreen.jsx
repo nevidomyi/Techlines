@@ -9,9 +9,8 @@ import {
   Text,
   useBreakpointValue,
   Alert,
-  AlertIcon, 
+  AlertIcon,
   AlertTitle,
-  useColorModeValue as mode,
   AlertDescription,
   useToast
 } from '@chakra-ui/react'

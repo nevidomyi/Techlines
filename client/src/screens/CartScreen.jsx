@@ -8,6 +8,7 @@ const CartScreen = () => {
   const cartInfo = useSelector((state) => state.cart);
   const { loading, error, cart } = cartInfo;
 
+  const getHeadingContent = () => (cart.length === 1 ? '(1 Item)' : `(${cart.lenght} Items)`)
 
   return (
     <Wrap spacing='30px' justify='center' minHeight='100vh'>
@@ -43,7 +44,7 @@ const CartScreen = () => {
             spacing={{ base: '8', md: '16' }}>
             <Stack spacing={{ base: '8', md: '10' }} flex='2'>
               <Heading fontSize='2xl' fontWeight='extrabold'>
-                Shopping Cart
+                Shopping Cart {getHeadingContent()}
               </Heading>
 
               <Stack spacing='6'>
