@@ -34,7 +34,7 @@ const CartScreen = () => {
         </Alert>
       ) : (
         <Box
-          naxW={{ base: '3xl', lg: '7xl' }}
+          maxW={{ base: '3xl', lg: '7xl' }}
           mx='auto'
           px={{ base: '4', md: '8', lg: '12' }}
           py={{ base: '6', md: '8', lg: '12' }}>

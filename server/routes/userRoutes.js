@@ -1,5 +1,6 @@
 import express from "express";
 import User from "../models/User.js";
+import Order from "../models/Order.js";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import protectRoute from "../middleware/authMiddleware.js";
@@ -14,8 +15,6 @@ const getToken = (id) => {
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-
-  console.log(user.createdAt);
   if (user && (await user.matchPasswords(password))) {
     res.json({
       _id: user._id,
@@ -87,8 +86,19 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({ user: req.params.id });
+  if (orders) {
+    res.json(orders);
+  } else {
+    res.status(404);
+    throw new Error("No Orders found");
+  }
+});
+
 userRoutes.post("/login", loginUser);
 userRoutes.post("/register", registerUser);
 userRoutes.put("/profile/:id", protectRoute, updateUserProfile);
+userRoutes.get("/:id", protectRoute, getUserOrders);
 
 export default userRoutes;
