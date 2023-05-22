@@ -2,7 +2,7 @@ import { Flex, Heading, Stack, Text, useColorModeValue as mode, Badge, Box, Link
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactLink } from 'react-router-dom';
 import { PhoneIcon, EmailIcon, ChatIcon } from '@chakra-ui/icons';
-import { createOrder } from '../redux/actions/orderActions';
+import { createOrder, resetOrder } from '../redux/actions/orderActions';
 import { useEffect, useState, useCallback } from "react";
 import CheckoutItem from './CheckoutItem';
 import PayPalButton from "./PayPalButton";
@@ -36,12 +36,23 @@ const CheckoutOrderSummary = () => {
     }
   }, [error, shippingAddress, total, expressShipping, shipping, dispatch]);
 
-  const onPaymentSuccess = () => {
-    alert('order success');
+  const onPaymentSuccess = async(data) => {
+    dispatch(createOrder({
+      orderItems: cart,
+      shippingAddress,
+      paymentMethod: data.paymentSource,
+      paymentDetails: data,
+      shippingPrice: shipping(),
+      totalPrice: total(),
+      userInfo,
+    }));
+    dispatch(resetOrder());
+    dispatch(resetCart());
+    //openSuccess()
   }
 
   const onPaymentError = () => {
-    alert('order error');
+    // onError()
   }
 
   return (
