@@ -1,11 +1,11 @@
-import { Box, Heading, VStack, FormControl, Flex, Stack, Text, ReducerAction, RadioGroup, Radio, Tooltip } from '@chakra-ui/react'
-import { Formik } from 'formik'
-import * as Yup from 'yup'
-import TextField from './TextField'
-import { useDispatch } from 'react-redux'
-import { setExpress } from '../redux/actions/cartActions'
-import { useState } from 'react'
-import { setShippingAddress, setShippingAddressError } from '../redux/actions/orderActions'
+import { Box, Heading, VStack, FormControl, Flex, Stack, Text, Radio, RadioGroup, Tooltip } from '@chakra-ui/react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import TextField from './TextField';
+import { useDispatch } from 'react-redux';
+import { setExpress } from '../redux/actions/cartActions';
+import { useState } from 'react';
+import { setShippingAddress, setShippingAddressError } from '../redux/actions/orderActions';
 
 const ShippingInformation = () => {
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ const ShippingInformation = () => {
       return;
     } else {
       setFormStateChanged(input);
-      dispatch(setShippingAddressError(input))
+      dispatch(setShippingAddressError(input));
     }
-  }
+  };
 
   return (
     <Formik
@@ -35,9 +35,10 @@ const ShippingInformation = () => {
       {(formik) => (
         <VStack as='form'>
           <FormControl
-            onChange={() => (Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length >= 2
-              ? setErrorState(false, formik.values)
-              : setErrorState(true))
+            onChange={
+              Object.keys(formik.errors).length === 0 && Object.keys(formik.touched).length >= 2
+                ? setErrorState(false, formik.values)
+                : setErrorState(true)
             }>
             <TextField name='address' placeholder='Street Address' label='Street Address' />
             <Flex>
@@ -83,7 +84,7 @@ const ShippingInformation = () => {
         </VStack>
       )}
     </Formik>
-  )
-}
+  );
+};
 
-export default ShippingInformation
+export default ShippingInformation;
