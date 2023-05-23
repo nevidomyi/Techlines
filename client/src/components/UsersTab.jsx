@@ -8,7 +8,7 @@ import ConfirmRemovalAlert from './ConfirmRemovalAlert'
 const UsersTab = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
-  const [userToDelere, setUserToDelete] = useState('');
+  const [userToDelete, setUserToDelete] = useState('');
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
   const { userInfo } = useSelector((state) => state.user);
@@ -80,7 +80,7 @@ const UsersTab = () => {
             onOpen={onOpen}
             onClose={onClose}
             cancelRef={cancelRef}
-            itemToDelete={userToDelere}
+            itemToDelete={userToDelete}
             deleteAction={deleteUser} />
         </Box>
       )}

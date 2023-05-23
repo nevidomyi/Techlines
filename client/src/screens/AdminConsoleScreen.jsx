@@ -1,7 +1,8 @@
-import { Box, Stack, Heading, Tabs, TabList, Tab, TabPanels } from '@chakra-ui/react'
+import { Box, Stack, Heading, Tabs, TabList, Tab, TabPanel, TabPanels } from '@chakra-ui/react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import UsersTab from '../components/UsersTab'
+import OrdersTab from '../components/OrdersTab'
 
 
 const AdminConsoleScreen = () => {
@@ -19,14 +20,17 @@ const AdminConsoleScreen = () => {
           <Tabs size={'md'} variant={'enclosed'}>
             <TabList>
               <Tab>Users</Tab>
-              <Tab>Products</Tab>
-              <Tab>Reviews</Tab>
+              {/* <Tab>Products</Tab>
+              <Tab>Reviews</Tab> */}
               <Tab>Orders</Tab>
             </TabList>
             <TabPanels>
-              <TabPanels>
+              <TabPanel>
                 <UsersTab />
-              </TabPanels>
+              </TabPanel>
+              <TabPanel>
+                <OrdersTab />
+              </TabPanel>
             </TabPanels>
           </Tabs>
         </Stack>
