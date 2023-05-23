@@ -35,7 +35,7 @@ export const adminSlice = createSlice({
   },
 });
 
-export const { setLoading, setError, getUsers, userDelete } =
+export const { setLoading, setError, getUsers, userDelete, resetError } =
   adminSlice.actions;
 export default adminSlice.reducer;
 

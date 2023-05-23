@@ -1,6 +1,5 @@
 import axios from "axios";
 import { getUsers, userDelete, setError, resetError } from "../slices/admin";
-import { resetError } from "../slices/products";
 
 export const getAllUsers = () => async (dispatch, getState) => {
   const {
