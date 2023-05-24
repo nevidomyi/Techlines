@@ -51,6 +51,7 @@ export const adminSlice = createSlice({
       state.deliveredFlag = true;
       state.loading = false;
     },
+    
   },
 });
 

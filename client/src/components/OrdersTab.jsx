@@ -80,7 +80,7 @@ const OrdersTab = () => {
                       <Text><i>Country:</i> {order.shippingAddress.country}</Text>
                     </Td>
                     <Td>{order.orderItems.map((item) => (
-                      <Text>{item.qty} x {item.name}</Text>
+                      <Text key={item.id}>{item.qty} x {item.name}</Text>
                     ))}</Td>
                     <Td>{order.paymentMethod}</Td>
                     <Td>${order.shippingPrice}</Td>
